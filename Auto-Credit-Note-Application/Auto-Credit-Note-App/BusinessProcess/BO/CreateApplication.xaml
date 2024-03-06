@@ -1,0 +1,555 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateApplication" this:CreateApplication.in_BO_URL="https://cnapp-UAT.sgs.net/backoffice/user/login.htm" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_InvoiceNo" Type="InArgument(x:String)" />
+    <x:Property Name="in_CostCenter" Type="InArgument(x:String)" />
+    <x:Property Name="in_Reason" Type="InArgument(x:String)" />
+    <x:Property Name="in_Approver" Type="InArgument(x:String)" />
+    <x:Property Name="in_BO_URL" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1206,5861</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>SGS.RPA.Framework-Template.Core</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>Auto-Credit-Note-App.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap:VirtualizedContainerService.HintSize="1216,5796" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1154,141" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+      <ui:LogMessage.Level>
+        <InArgument x:TypeArguments="ui:LogLevel">
+          <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Level>
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">"Processing Invoice No.:" + in_InvoiceNo</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge-Backoffice" sap:VirtualizedContainerService.HintSize="1154,5504" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1120,5287" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="invoice_currency" />
+              <Variable x:TypeArguments="x:String" Name="currency_code" />
+              <Variable x:TypeArguments="x:Double" Name="total_amount" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Invoice Number'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1058,218" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://cnapp.sgs.net/backoffice/index.html" ContentHash="8PuY3Wx_uUyk0kN7I2QOGA" CvElementArea="1380, 419, 470, 37" CvType="InputBox" DesignTimeRectangle="1382, 421, 467, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Txt_InvoiceNo'" FullSelectorArgument="&lt;webctrl id='invoiceNumber' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='invoiceNumber' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="4aa5d7f7-09dc-4eb9-be45-003587e3baa9" InformativeScreenshot="7f370e17c36a4681ee16b184144d39ff.png" IsResponsive="True" Reference="OB36fl1EeEGz1TJDUCgeaw/L16AQOBXGUSMNTMOoNrzcg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="1381, 400, 95, 12" CvTextArgument="Invoice Number:" CvType="Text" DesignTimeRectangle="1382, 399, 94, 17" ElementType="Text" FriendlyName="'Txt_InvoiceNo'" FullSelectorArgument="&lt;webctrl aaname='Invoice Number: ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Invoice Number: ' tag='LABEL' type='' class='style-d' check:innerText='Invoice Number:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_InvoiceNo</CSharpValue>
+                </InArgument>
+              </uix:NTypeInto.Text>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Btn_Search'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://cnapp.sgs.net/backoffice/index.html" ContentHash="KnVHpPrWVUuwgmo168Eong" CvElementArea="1615, 543, 193, 37" CvTextArea="1688, 554, 47, 13" CvTextArgument="Search" CvType="Button" DesignTimeRectangle="1617, 544, 190, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Btn_Search'" FullSelectorArgument="&lt;webctrl id='Search' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Search' tag='BUTTON' type='button' class='btn btn-primary cartBtnW' aaname='Search' check:innerText='Search' /&gt;" Guid="9f1840f3-d671-4a8d-a934-8f3f73f4a12b" InformativeScreenshot="417a41c61f53f0b4d545aa9eafd971fd.png" Reference="OB36fl1EeEGz1TJDUCgeaw/90U4594oOEO_CvstUOWCNQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State 'Chk_TableRow'" sap:VirtualizedContainerService.HintSize="1058,489" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Timeout="10" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,272" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheck Action="Check" DisplayName="Check/Uncheck 'Chk_TableRow'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NCheck_2" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+                    <uix:NCheck.Target>
+                      <uix:TargetAnchorable BrowserURL="https://cnapp.sgs.net/backoffice/index.html" ContentHash="voUNxReM1kesfWw9xn2Ssg" DesignTimeRectangle="311, 588, 13, 13" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Chk_TableRow'" FullSelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl id='jqg_BOSSCreditApplication_list_*' tableRow='2' tag='INPUT' tableCol='2' type='checkbox' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl id='jqg_BOSSCreditApplication_list_*' aaname='' tag='INPUT' class='cbox' type='checkbox' /&gt;" Guid="c0f48d39-84bd-4b66-9344-062b9b46b60b" InformativeScreenshot="021b7bb7618ebce74114a5bb97e8ebd0.png" Reference="OB36fl1EeEGz1TJDUCgeaw/DuUub2lYn0SASI9yALxBkw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                    </uix:NCheck.Target>
+                  </uix:NCheck>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_2">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">new BusinessRuleException("Could not found invoice :" + in_InvoiceNo)</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://cnapp.sgs.net/backoffice/index.html" ContentHash="voUNxReM1kesfWw9xn2Ssg" DesignTimeRectangle="311, 588, 13, 13" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Chk_TableRow'" FullSelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl id='jqg_BOSSCreditApplication_list_*' tableRow='2' tag='INPUT' tableCol='2' type='checkbox' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl id='jqg_BOSSCreditApplication_list_*' aaname='' tag='INPUT' class='cbox' type='checkbox' /&gt;" Guid="c0f48d39-84bd-4b66-9344-062b9b46b60b" InformativeScreenshot="021b7bb7618ebce74114a5bb97e8ebd0.png" Reference="OB36fl1EeEGz1TJDUCgeaw/DuUub2lYn0SASI9yALxBkw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <uix:NGetText DisplayName="Get Text 'Invoice Currency'" sap:VirtualizedContainerService.HintSize="1058,52" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="854, 481, 132, 33" DesignTimeScaleFactor="1.100000023841858" ElementType="Text" FriendlyName="'3230.89'" FullSelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='8' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="37fcdb9f-66b4-4997-b2a5-ea8c7820bef0" InformativeScreenshot="b917f683dd0e84c304addb9f130ebdec.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="857, 458, 125, 19" FriendlyName="'Invoice Currency'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='jqgh_BOSSCreditApplication_list_InvoiceCurrencytotalAmount' tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='jqgh_BOSSCreditApplication_list_InvoiceCurrencytotalAmount' type='' tag='DIV' class='ui-jqgrid-sortable' aaname='Invoice Currency Total Amount' check:innerText='Invoice Currency Total Amount' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.TextString>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">invoice_currency</CSharpReference>
+                </OutArgument>
+              </uix:NGetText.TextString>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NGetText>
+            <uix:NGetText DisplayName="Get Text 'Currencycode'" sap:VirtualizedContainerService.HintSize="1058,52" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="744, 481, 110, 33" DesignTimeScaleFactor="1.100000023841858" ElementType="Text" FriendlyName="'USD'" FullSelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='7' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BOSSCreditApplication_list' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="40d88431-4fa8-4957-a3a3-44f88a057f80" InformativeScreenshot="917c114d6de79607673c11d68f009041.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="747, 458, 103, 19" FriendlyName="'Currencycode'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='jqgh_BOSSCreditApplication_list_currencycode' tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='jqgh_BOSSCreditApplication_list_currencycode' type='' tag='DIV' class='ui-jqgrid-sortable' aaname='Currencycode' check:innerText='Currencycode' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.TextString>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">currency_code</CSharpReference>
+                </OutArgument>
+              </uix:NGetText.TextString>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NGetText>
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="1058,52" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Switch.Default>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Double">
+                      <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">total_amount</CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Double">0</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Switch.Default>
+              <Switch.Expression>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">currency_code</CSharpValue>
+                </InArgument>
+              </Switch.Expression>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign x:Key="HKD" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">
+                    <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">total_amount</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">
+                    <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Convert.ToDouble(invoice_currency)</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign x:Key="USD" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">
+                    <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">total_amount</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">
+                    <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16" xml:space="preserve">Convert.ToDouble(invoice_currency) *  7.8</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign x:Key="EUR" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">
+                    <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">total_amount</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">
+                    <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">Convert.ToDouble(invoice_currency)* 8.5</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign x:Key="CNY" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">
+                    <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">total_amount</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">
+                    <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">Convert.ToDouble(invoice_currency) * 1.1</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+            </Switch>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1058,52" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+              <ui:LogMessage.Message>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"The total value is : " + total_amount.ToString()</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Message>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Btn_CreateApplication'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://cnapp.sgs.net/backoffice/index.html" ContentHash="IyTiZXGYkEqaPMSNPbY6xw" CvElementArea="276, 652, 397, 36" CvTextArea="398, 663, 153, 16" CvTextArgument="BOSS Credit Application" CvType="Button" DesignTimeRectangle="277, 653, 397, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Btn_CreateApplication'" FullSelectorArgument="&lt;webctrl id='BOSSCreditApplicationBtn' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BOSSCreditApplicationBtn' tag='BUTTON' type='button' class='btn btn-primary cartBtnW' aaname='BOSS Credit Application' check:innerText='BOSS Credit Application' /&gt;" Guid="7810ed6c-c342-4cea-bc8f-cc48c984a80a" InformativeScreenshot="debb18f99acc88d0bd793b8a8816e18f.png" Reference="OB36fl1EeEGz1TJDUCgeaw/aybaTPaEO0-xM7DYWDws9g" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Wrong Price" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="6">
+                  <x:String>请选择</x:String>
+                  <x:String>Wrong Customer</x:String>
+                  <x:String>Wrong Price</x:String>
+                  <x:String>Wrong Currency on Invoice</x:String>
+                  <x:String>Duplicate Billing</x:String>
+                  <x:String>Cancellation</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://cnapp.sgs.net/backoffice/index.html" ContentHash="sI8u01oggkSxZYz36k4WEQ" CvTextArea="660, 418, 44, 16" CvTextArgument="1" CvType="Text" DesignTimeRectangle="644, 410, 463, 34" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Sel_Reason'" FullSelectorArgument="&lt;webctrl id='ReasonType' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ReasonType' tag='SELECT' type='' class='form-control' aaname='' /&gt;" Guid="f3fc5992-7ce3-4b3e-b466-4d87186a5189" InformativeScreenshot="5b905a5fe2e8a71bf82d22fc78eb5ae7.png" Reference="OB36fl1EeEGz1TJDUCgeaw/wVTVH_-65ESK7lFuu_YFHw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="642, 389, 167, 14" CvTextArgument="*Credit Invoice Reason Type:" CvType="Text" DesignTimeRectangle="644, 388, 165, 17" ElementType="Text" FriendlyName="'Sel_Reason'" FullSelectorArgument="&lt;webctrl parentid='RedinvoiceReasonModel' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='RedinvoiceReasonModel' tag='LABEL' type='' class='style-d' aaname='Credit Invoice Reason Type:' check:innerText='*Credit Invoice Reason Type:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '*Credit invoice'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1058,218" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" ContentHash="nLlkUQmFLUOkjOC0uKoMmQ" CvElementArea="458, 371, 333, 56" CvType="InputBox" DesignTimeRectangle="461, 419, 328, 54" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Txt_Reason'" FullSelectorArgument="&lt;webctrl id='RedinvoiceReason' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='RedinvoiceReason' tag='TEXTAREA' type='text' class='form-control' aaname='' /&gt;" Guid="7cb637f6-ee8b-4e15-8267-5f234240fe67" InformativeScreenshot="5ef109d70855567e574c91bce834e4e8.png" IsResponsive="True" Reference="OB36fl1EeEGz1TJDUCgeaw/m4JnjXmEb0C_pRKl3O8lHA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvElementArea="458, 371, 333, 56" CvType="InputBox" DesignTimeRectangle="461, 397, 204, 17" ElementType="Text" FriendlyName="'Txt_Reason'" FullSelectorArgument="&lt;webctrl aaname='Credit invoice Reason Description:' parentid='RedinvoiceReasonModel' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Credit invoice Reason Description:' parentid='RedinvoiceReasonModel' tag='LABEL' type='' class='style-d' check:innerText='*Credit invoice Reason Description:' /&gt;" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_Reason</CSharpValue>
+                </InArgument>
+              </uix:NTypeInto.Text>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Btn_Save'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" ContentHash="bchWImbaFEmVQ9NLu-CFFg" CvTextArea="688, 506, 26, 12" CvTextArgument="Save" CvType="Text" DesignTimeRectangle="659, 500, 67, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Btn_Save'" FullSelectorArgument="&lt;webctrl parentid='RedinvoiceReasonModel' tag='BUTTON' type='button' innertext='  Save' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='RedinvoiceReasonModel' tag='BUTTON' type='button' innertext='  Save' class='btn btn-primary fa fa-check ladda-button' aaname='  Save' check:text='Save' /&gt;" Guid="bb54e3b0-06a2-4f08-82a1-04c9a49e820d" InformativeScreenshot="5d2755d48a2feefa79ef5c8f1e33245f.png" Reference="OB36fl1EeEGz1TJDUCgeaw/Zdb_w0dHz0KmifMLyOJpLw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '部门总监审批(4级)'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_22" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" CvElementArea="285, 208, 911, 38" CvType="InputBox" DesignTimeRectangle="290, 211, 903, 27" DesignTimeScaleFactor="1.100000023841858" ElementType="List" FriendlyName="'Sel_'部门总监审批(4级)''" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span&amp;gt;ul' tag='UL' class='select2-selection__rendered' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='UL' class='select2-selection__rendered' aaname='' /&gt;" Guid="830d566c-704d-44b0-86e3-b6cc8f42a07b" InformativeScreenshot="64883445abc6b44061c48f6bb7959f24.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="179, 210, 110, 17" CvTextArgument="SIRKS#(49R)" CvType="Text" DesignTimeRectangle="180, 210, 109, 19" ElementType="Text" FriendlyName="'Sel_'部门总监审批(4级)''" FullSelectorArgument="&lt;webctrl aaname='部门总监审批(4级)' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='部门总监审批(4级)' tag='LABEL' type='' class='' check:innerText='部门总监审批(4级)' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'F520101 +'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" CvTextArea="295, 380, 271, 18" CvTextArgument="F520101 + Cyrus Chan + sylvia.fan@sgs.com" CvType="Text" DesignTimeRectangle="290, 374, 888, 32" DesignTimeScaleFactor="1.100000023841858" ElementType="ListItem" FriendlyName="'F520101 +'" FullSelectorArgument="&lt;webctrl aria-role='treeitem' idx='5' tag='LI' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='treeitem' type='' tag='LI' class='select2-results__option' aaname='F520101 + Cyrus Chan + sylvia.fan@sgs.com' check:innerText='F520101 + Cyrus Chan + sylvia.fan@sgs.com' /&gt;" Guid="836d421b-54a0-43e5-aab7-cbf2cb022523" InformativeScreenshot="c884e15332f38976f625a05db3ec70af.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <If sap:VirtualizedContainerService.HintSize="1058,624" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">total_amount &gt;= 13000</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,442" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '部门总监审批(6级)'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_24" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="290, 324, 903, 27" DesignTimeScaleFactor="1.100000023841858" ElementType="List" FriendlyName="'UL'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span&amp;gt;ul' idx='4' tag='UL' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='select2-selection__rendered' tag='UL' aaname='' /&gt;" Guid="9c3462ac-def5-404d-8a51-3e9afd39f357" ImageBase64="" InformativeScreenshot="135bde1d1016438764519041d33f2fa3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="180, 323, 109, 19" ElementType="Text" FriendlyName="'部门总监审批(6级)'" FullSelectorArgument="&lt;webctrl aaname='部门总监审批(6级)' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='部门总监审批(6级)' tag='LABEL' type='' class='' check:innerText='部门总监审批(6级)' /&gt;" ImageBase64="" SearchSteps="Selector, FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'F520101 +'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="290, 519, 888, 32" DesignTimeScaleFactor="1.100000023841858" ElementType="ListItem" FriendlyName="'F520101 +'" FullSelectorArgument="&lt;webctrl aria-role='treeitem' idx='6' tag='LI' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='treeitem' type='' tag='LI' class='select2-results__option' aaname='F520101 + William Wong + jimmy.wong@sgs.com' check:innerText='F520101 + William Wong + jimmy.wong@sgs.com' /&gt;" Guid="30234a0e-6bce-4ff7-a63b-7845cdabee89" ImageBase64="" InformativeScreenshot="a1d65b3d2805bf878d87606dddd4ed4b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_18" />
+              </If.Else>
+            </If>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '+ 添加附件'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="180, 441, 81, 77" DesignTimeScaleFactor="1.100000023841858" ElementType="Button" FriendlyName="'+ 添加附件'" FullSelectorArgument="&lt;webctrl id='button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='button' tag='INPUT' type='button' class='' aaname='+ 添加附件' check:text='+ 添加附件' /&gt;" Guid="813dd12a-6eef-463d-830a-2aebad570d0d" InformativeScreenshot="09993774ee819d0d575704360a4e64f0.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'INPUT PicFile'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="263, 442, 250, 28" DesignTimeScaleFactor="1.100000023841858" ElementType="InputBox" FriendlyName="'INPUT PicFile'" FullSelectorArgument="&lt;webctrl id='PicFile' tag='INPUT' type='file' /&gt;" FuzzyAccuracy="0.45" FuzzySelectorArgument="&lt;webctrl id='PicFile' tag='INPUT' type='file' class='' aaname='' /&gt;" Guid="4b42e492-b968-442e-a7a7-9a1e58919bd8" InformativeScreenshot="e37fdb9e08fe5f20363f728c208f025a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'M Finalize_S'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_26" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="267, 233, 510, 22" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'M Finalize_S'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1121' title='ShellView' /&gt;&lt;wnd aaname='Items View' cls='DirectUIHWND' /&gt;&lt;ctrl name='Items View' role='list' /&gt;&lt;ctrl automationid='5' /&gt;&lt;ctrl automationid='System.ItemNameDisplay' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1121' title='ShellView' /&gt;&lt;wnd aaname='Items View' cls='DirectUIHWND' /&gt;&lt;ctrl name='Items View' role='list' /&gt;&lt;ctrl automationid='5' /&gt;&lt;ctrl automationid='System.ItemNameDisplay' role='editable text' check:text='M Finalize_S Ray T32420250337SN_Crystal Yeung.pdf' /&gt;" Guid="f676c2aa-5520-48d9-8382-b9592a00a81a" InformativeScreenshot="99bff94e1512af8f8523e02f4cfc99d3.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Send Email'" sap:VirtualizedContainerService.HintSize="1058,157" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" CvTextArea="1124, 696, 58, 12" CvTextArgument="Send Email" CvType="Text" DesignTimeRectangle="1095, 690, 100, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Send Email'" FullSelectorArgument="&lt;webctrl id='sendEmail_btn' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='sendEmail_btn' tag='BUTTON' type='button' class='btn btn-primary fa fa-check ladda-button' aaname='  Send Email' check:innerText='Send Email' /&gt;" Guid="b7b472d2-8736-45b9-a7a2-a24f97e11251" InformativeScreenshot="41f138ebe15bacf5ecbd3977faab1025.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State '为了您的申请能尽快得到批准，请上传必要的客户说…'" sap:VirtualizedContainerService.HintSize="1058,972" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="554,755" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Yes'" sap:VirtualizedContainerService.HintSize="492,157" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" CvElementArea="676, 514, 94, 48" CvTextArea="707, 529, 32, 15" CvTextArgument="Yes" CvType="Button" DesignTimeRectangle="678, 516, 92, 44" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Yes'" FullSelectorArgument="&lt;webctrl class='confirm' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl class='confirm' tag='BUTTON' type='' aaname='Yes' check:innerText='Yes' /&gt;" Guid="97b0a88f-f4ba-4e9f-9ddd-061d3468493e" InformativeScreenshot="aef8586d3de9f34d6ae508a20c7c5dd5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,443" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="10" RetryInterval="00:00:30">
+                    <ui:RetryScope.ActivityBody>
+                      <ActivityAction>
+                        <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,268" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="630, 538, 89, 44" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;webctrl class='confirm' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl class='confirm' tag='BUTTON' type='' aaname='OK' check:innerText='OK' /&gt;" Guid="25ddee10-37fd-455c-b73a-f74fb3e71cba" ImageBase64="" InformativeScreenshot="5cb17b4b9ee059351bdc394047cc23cb.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:RetryScope.ActivityBody>
+                    <ui:RetryScope.Condition>
+                      <ActivityFunc x:TypeArguments="x:Boolean" />
+                    </ui:RetryScope.Condition>
+                  </ui:RetryScope>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,402" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">new BusinessRuleException("Can not send mail.!")</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4de9af99-ca18-467e-b14d-4cfd04f0494e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://cnapp-uat.sgs.net/backoffice/index.html" CvElementArea="623, 521, 100, 53" CvTextArea="657, 537, 30, 17" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="624, 523, 97, 49" DesignTimeScaleFactor="1.100000023841858" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;webctrl class='confirm' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl class='confirm' tag='BUTTON' type='' aaname='OK' check:innerText='OK' /&gt;" Guid="70beca40-4626-44f6-a67a-c61a75f0e7fc" InformativeScreenshot="170e562d9859bd254489991932028c98.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArea="536, 472, 271, 21" CvTextArgument="izP¥-RN iiIRMF!" CvType="Text" DesignTimeRectangle="428, 471, 488, 24" ElementType="Text" FriendlyName="'请选中至少一条数据，进行此操作!'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' aaname='请选中至少一条数据，进行此操作!' check:innerText='请选中至少一条数据，进行此操作!' /&gt;" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="http://cnapp-uat.sgs.net/backoffice/index.html" DesignTimeRectangle="452, 448, 444, 42" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'为了您的申请能尽快得到批准，请上传必要的客户说…'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' aaname='*请上传*文件*' check:innerText='' /&gt;" Guid="9293c98e-17e2-43ef-98e6-51be6e1bd455" InformativeScreenshot="fa8d196f30c571af2618c7a63e9d272a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BusinessProcess\\SharePoint\\FillInApplicationNo.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1058,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="BusinessProcess\\SharePoint\\FillInApplicationNo.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" InformativeScreenshot="7187e47e4c9a656750d5c1adada76761.jpg" Selector="&lt;html app='msedge.exe' title='BackOffice System' /&gt;" Title="BackOffice System">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_BO_URL</CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
